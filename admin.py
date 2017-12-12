@@ -6,8 +6,8 @@ from sync_database import *
 def admin():
     while(True):
         print("//----------admin----------//")
-        print("1.Ticket\n2.Discount\n3.Exit")
-        admin_opt = check_input("enter the choice :", 1)
+        print("1.Ticket\n2.Discount\n3.Age Limits\n4.Exit")
+        admin_opt = check_input("enter the choice :", 3)
         if (admin_opt == 1):
             ret=get_source_dest()
             if (ret == 0):
@@ -86,8 +86,12 @@ def admin():
                             globals.ticket_dic[globals.stop].update({"p_disc":p_disc})
                             globals.ticket_dic[globals.stop].update({"p_count":p_count})
                             globals.ticket_dic[globals.stop].update({"p_flag":p_flag})
+        elif admin_opt == 3:
+            verify_age_limit()
+            sync_from_age()
         else:
              break
+
 
 
 

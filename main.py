@@ -1,15 +1,12 @@
 from sync_database import *
 from admin import *
 from user import *
-# import pymysql
 
 
 if __name__ == '__main__':
     sync_from_user()
     sync_from_main()
     sync_from_age()
-    print("ticket_dictionary------>", globals.ticket_dic)
-    print("user_dictionary------->", globals.user_dic)
     while True:
         print("\n\n******* WELCOME ********\n1.USER\n2.ADMIN\n3.EXIT")
         choice = check_input("enter the option :", 1)

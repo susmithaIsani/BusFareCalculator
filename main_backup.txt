@@ -1,0 +1,10 @@
+create table ticket_fare(id int not NULL AUTO_INCREMENT,passenger TEXT NOT NULL ,fare int NOT NULL,FOREIGN KEY(id) references stops(id));
+insert into ticket_fare values(1,"adult",10),(1,"child",6),(2,"adult",30),(3,"adult",45),(4,"adult",60),(5,"adult",50),(6,"adult",60),(6,"child",40),(7,"adult",80),(8,"adult",70),(9,"adult",80),(10,"adult",70),(11,"adult",40),(11,"child",20),(12,"adult",20),(13,"adult",90),(14,"adult",30),(15,"adult",10),(16,"adult",50),(17,"adult",100),(18,"adult",20),(19,"adult",5),(20,"adult",60),(20,"child",20);
+
+create table user_table(name char NOT NULL,source int NOT NULL,dest int NOT NULL,count int NOT NULL);
+
+create table age_limit(person TEXT NOT NULL,min int NOT NULL,max int NOT NULL);
+insert into age_limit values("child",5,15),("adult",16,60);
+
+
+select stops.id,stops.source,stops.dest,ticket_fare.passenger, ticket_fare.fare,discounts.discount_type,discounts.discount,discounts.number,discounts.flag  from stops INNER JOIN ticket_fare ON ticket_fare.id = stops.id LEFT JOIN discounts ON discounts.id = stops.id;

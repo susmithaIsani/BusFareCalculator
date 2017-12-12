@@ -126,7 +126,7 @@ def verify_age_limit():
         adult_min = check_input("enter the adult min age limit :", 2)
         adult_max = check_input("enter the adult max age limit :", 2)
         if (child_min < child_max) and (child_max == (adult_min-1)) and (adult_min < adult_max):
-            update_to_database("age_limit_table", 0, 0, 0, [child_min, child_max, adult_min, adult_max], "age_limit")
+            update_to_database("age_limit", 0, 0, 0, [child_min, child_max, adult_min, adult_max], "age_limit")
             return 0
         else:
             print("********enter correct age limits********")
